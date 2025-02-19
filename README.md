@@ -6,5 +6,5 @@ After annotating, their platform offers two methods for downloading:
 1. annotations.dive.json
 2. annotations.viame.csv
    
-The annotation format for boundary boxes in VIAME/DIVE is x<sub>1</sub>, y~1~, x~2~, y~2~, describing the upper left and bottom right corners.
-YOLOv5 boundary box format follows center~x~, center~y~, width~bb_box~, height~bb_box~, all normalized by the width and height of the photo. 
+The annotation format for boundary boxes in VIAME/DIVE is x<sub>1</sub>, y<sub>1</sub>, x<sub>2</sub>, <sub>2</sub>, describing the upper left and bottom right corners.
+YOLOv5 boundary box format follows center<sub>x</sub>, center<sub>y</sub>, width<sub>bb_box</sub>, height<sub>bb_box</sub>, all normalized by the width and height of the photo. 
