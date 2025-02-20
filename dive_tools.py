@@ -2,7 +2,7 @@ import json
 import os
 from PIL import Image
 
-# universal function
+
 
 def convert_dive2yolo(bounds, img_h, img_w):
     # Dive convention is x1, y1, x2, y2 (top left, bottom right)
@@ -10,11 +10,13 @@ def convert_dive2yolo(bounds, img_h, img_w):
     # all normalized by the image height and width
     x1, y1, x2, y2 = bounds
 
-    bb_w = (x2 - x1)/img_w
-    bb_h = (y2 - y1)/img_h
+    bb_w = (x2 - x1)
+    bb_h = (y2 - y1)
 
     cx = (x1 + bb_w/2)/img_w
     cy = (y1 + bb_h/2)/img_h
+    bb_w = bb_w/img_w
+    bb_h = bb_h/img_h
 
     return(cx, cy, bb_w, bb_h)
 
@@ -79,6 +81,8 @@ class JSONData:
                 except Exception as e:
                     print(f"There was an error writing to {fullpath} --> Error: {e}")
 
+#### for csv
+
 
 class CSVData:
     def __init__(self,csvData):
@@ -115,7 +119,7 @@ class CSVData:
                 formatted_str = f"{self.class_id} {cx:.6f} {cy:.6f} {bb_w:.6f} {bb_h:.6f} # {self.confPairs[0]} \n"
                 file.write(formatted_str)
         except Exception as e:
-            print(f"There was an error writing to {fullpath} /n Error: {e}")
+            print(f"There was an error writing to {fullpath} --> Error: {e}")
 
 
 
