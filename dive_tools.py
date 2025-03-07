@@ -76,7 +76,7 @@ class JSONData:
                 try:
                     with open(fullpath, 'a+') as file:
                         cx, cy, bb_w, bb_h = convert_dive2yolo(j.bounds, img_h, img_w)
-                        formatted_str = f"{class_id} {cx:.6f} {cy:.6f} {bb_w:.6f} {bb_h:.6f} # {class_name} \n"
+                        formatted_str = f"{class_id} {cx:.6f} {cy:.6f} {bb_w:.6f} {bb_h:.6f} \n"
                         file.write(formatted_str)
                 except Exception as e:
                     print(f"There was an error writing to {fullpath} --> Error: {e}")
@@ -116,7 +116,7 @@ class CSVData:
         try:
             with open(fullpath, 'a+') as file:
                 cx, cy, bb_w, bb_h = convert_dive2yolo(self.bounds, img_h, img_w)
-                formatted_str = f"{self.class_id} {cx:.6f} {cy:.6f} {bb_w:.6f} {bb_h:.6f} # {self.confPairs[0]} \n"
+                formatted_str = f"{self.class_id} {cx:.6f} {cy:.6f} {bb_w:.6f} {bb_h:.6f} \n"
                 file.write(formatted_str)
         except Exception as e:
             print(f"There was an error writing to {fullpath} --> Error: {e}")
