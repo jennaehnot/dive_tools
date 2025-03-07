@@ -69,7 +69,7 @@ class JSONData:
             # for every feature in each track
             for j in track.features:
                 # make path to label file
-                frame = str(j.frame)
+                frame = str(j.frame + 1).rjust(5,'0')
                 filename = frame_name_convtn + frame + '.txt'
                 fullpath = labels_path + filename
 
@@ -109,7 +109,7 @@ class CSVData:
             print("Couldn't open image to pull height and width")
 
         # make labels file path
-        frame = str(self.frame)
+        frame = str(self.frame + 1).rjust(5,'0')
         filename = frame_name_convtn + frame + '.txt'
         fullpath = labels_path + filename
 
